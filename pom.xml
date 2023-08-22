@@ -45,6 +45,12 @@
 	<!-- Properties -->
 	<!-- =============================================================== -->
 	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- ===== Apache Struts ===== -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -57,4 +63,11 @@
 			<version>${apache.struts.version}</version>
 		</dependency>
 	</dependencies>
+
+	<!-- =============================================================== -->
+	<!-- Build -->
+	<!-- =============================================================== -->
+	<build>
+		<directory>${project.basedir}/output</directory>
+	</build>
 </project>
