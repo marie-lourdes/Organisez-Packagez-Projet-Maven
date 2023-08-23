@@ -65,12 +65,34 @@
 			<version>${apache.struts.version}</version>
 		</dependency>
 	</dependencies>
-	
-	 <!-- =============================================================== -->
-    <!-- Profils -->
-    <!-- =============================================================== -->
-    <profiles>
-        <!-- Profil pour l'environnement de test -->
+
+	<!-- =============================================================== -->
+	<!-- Profils -->
+	<!-- =============================================================== -->
+	<profiles>
+		<!-- Profil activé automatiquement si la version du JDK est 1.8
+     et sous-versions mineures (1.8.0_131 par exemple) -->
+		<profile>
+			<id> jdk</id>
+			<activation>
+				<jdk>1.8</jdk>
+			</activation>
+			<!-- ... -->
+		</profile>
+		<!-- Profil activé automatiquement si la propriété système
+		"environnement" vaut "test" -->
+		<profile>
+			<id> env-test</id>
+			<activation>
+				<property>
+					<name>environnement</name>
+					<value>test</value>
+				</property>
+			</activation>
+			<!-- ... -->
+		</profile>
+		
+		 <!-- Profil pour l'environnement de test -->
         <profile>
             <id>test</id>
             <build>
@@ -94,7 +116,7 @@
                 </resources>
             </build>
         </profile>
-    </profiles>
+	</profiles>
 
 	<!-- =============================================================== -->
 	<!-- Build -->
