@@ -15,16 +15,20 @@ public class App {
 
 		try {
 			// getResourceAsStream, methode des type class
-			vInputStream = App.class.getResourceAsStream("info.properties");
+			vInputStream = App.class.getResourceAsStream("/info.properties");
 			// load() methode de la classe Properties, qui une liste de proprité dans un
 			// inputStream
 			vProp.load(vInputStream);
-			System.out.println(" propriété de version de l application defini dans info.properties: "
-					+ vProp.getProperty(org.exemple.demo.version, "?"));
-			// on recupere la propriété crée dans info.properties , dont la valeur est passé
-			// dans le second parametre avec "?"
+
 		} finally {
+			if (vInputStream != null) {
+				vInputStream.close();
+			}
 
 		}
+		System.out.println(" propriété de version de l application defini dans info.properties: "
+				+ vProp.getProperty("org.exemple.demo.version", "?"));
+		// on recupere la propriété crée dans info.properties , dont la valeur est passé
+		// dans le second parametre avec "?"
 	}
 }

@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+<!--  ces balises de  commentaire XML est celui du HTML(sauf qu il integre l Hypertext) puisque les deux utilise le meme langage de balisage  "markup language"" -->
 	<!-- =============================================================== -->
 	<!-- Informations du projet -->
 	<!-- =============================================================== -->
@@ -68,8 +68,8 @@
 	<!-- Build -->
 	<!-- =============================================================== -->
 	<build>
-		<directory>${project.basedir}/output</directory>
-	    <!-- Gestion des plugins (version) -->
+		
+		<!-- Gestion des plugins (version) -->
         <pluginManagement>
             <plugins>
                 <!-- Plugin responsable de la génération du fichier JAR -->
@@ -94,5 +94,24 @@
                 </configuration>
             </plugin>
         </plugins>
+        
+          <!-- fichier de sortie lors du build -->
+		<!--<directory>${project.basedir}/output</directory>-->
+		
+		<!-- Filter les ressources contenant les properties 
+		 et ne pas filtrer d autres fichiers ressources via leur sous repertoire de resources -->
+		<resources>
+            <resource>
+                <directory>src/main/resources/Filtered</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/Raw</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+      
+		
+	   
 	</build>
 </project>
