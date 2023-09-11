@@ -82,13 +82,21 @@
 		<!-- Profil activé automatiquement si la propriété système
 		"environnement" vaut "test" -->
 		<profile>
-			<id> env-test</id>
+		
 			<activation>
 				<property>
 					<name>environnement</name>
 					<value>test</value>
 				</property>
 			</activation>
+			 <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/Conf-test</directory>
+                          <filtering>true</filtering>
+                    </resource>
+                </resources>
+            </build>
 			<!-- ... -->
 		</profile>
 		
