@@ -19,7 +19,7 @@ public class App {
 			// load() methode de la classe Properties, qui une liste de proprité dans un
 			// inputStream
 			vProp.load(vInputStream);
-
+// provoque erreur null car c etait sur la based un seul fichier, a oresent deux fichier info.properties dans deux dossier de conf dans /reesourcs, il faut filter dans le pom.xml
 		} finally {
 			if (vInputStream != null) {
 				vInputStream.close();
